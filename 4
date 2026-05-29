@@ -1,0 +1,20 @@
+#include <iostream>
+#include <cmath>
+
+int main() {
+    const double PI = 3.14159265358979323846;
+
+    std::cout << "Sine table (0 to 90 degrees):\n\n";
+
+    for (int deg = 0; deg <= 90; deg++) {
+        double rad = deg * PI / 180.0;
+        double sinVal = sin(rad);
+
+        printf("%3d deg -> %.4f\t", deg, sinVal);
+
+        if ((deg + 1) % 10 == 0 || deg == 90)
+            std::cout << std::endl;
+    }
+
+    return 0;
+}
