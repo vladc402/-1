@@ -1,0 +1,45 @@
+#include <iostream>
+#include <cstdlib>
+
+int main() {
+    int size;
+    std::cout << "Array size: ";
+    std::cin >> size;
+
+    int arr[size];
+
+    for (int i = 0; i < size; i++) {
+        arr[i] = rand() % 50 + 1;
+    }
+
+    std::cout << "Array: ";
+    for (int i = 0; i < size; i++) {
+        std::cout << arr[i] << " ";
+    }
+
+    int searchValue, newValue;
+    std::cout << "\nSearch for: ";
+    std::cin >> searchValue;
+    std::cout << "Replace with: ";
+    std::cin >> newValue;
+
+    bool found = false;
+    for (int i = 0; i < size; i++) {
+        if (arr[i] == searchValue) {
+            arr[i] = newValue;
+            found = true;
+        }
+    }
+
+    if (found) {
+        std::cout << "Updated array: ";
+        for (int i = 0; i < size; i++) {
+            std::cout << arr[i] << " ";
+        }
+        std::cout << std::endl;
+    } else {
+        std::cout << "Value " << searchValue << " not found." << std::endl;
+    }
+
+    return 0;
+}
