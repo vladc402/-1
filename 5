@@ -1,0 +1,55 @@
+#include <iostream>
+#include <cstdlib>
+
+int main() {
+    int size;
+    std::cout << "Array size: ";
+    std::cin >> size;
+
+    int arr[size];
+
+    for (int i = 0; i < size; i++) {
+        arr[i] = rand() % 100 + 1;
+    }
+
+    std::cout << "Array: ";
+    for (int i = 0; i < size; i++) {
+        std::cout << arr[i] << " ";
+    }
+
+    int choice;
+    std::cout << "\nCheck:\n1 - increasing\n2 - decreasing\nYour choice: ";
+    std::cin >> choice;
+
+    bool isSorted = true;
+
+    if (choice == 1) {
+        for (int i = 1; i < size; i++) {
+            if (arr[i] < arr[i - 1]) {
+                isSorted = false;
+                break;
+            }
+        }
+        if (isSorted)
+            std::cout << "Array is increasing." << std::endl;
+        else
+            std::cout << "Array is NOT increasing." << std::endl;
+    }
+    else if (choice == 2) {
+        for (int i = 1; i < size; i++) {
+            if (arr[i] > arr[i - 1]) {
+                isSorted = false;
+                break;
+            }
+        }
+        if (isSorted)
+            std::cout << "Array is decreasing." << std::endl;
+        else
+            std::cout << "Array is NOT decreasing." << std::endl;
+    }
+    else {
+        std::cout << "Invalid choice." << std::endl;
+    }
+
+    return 0;
+}
