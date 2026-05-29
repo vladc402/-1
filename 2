@@ -1,0 +1,28 @@
+#include <iostream>
+
+int main() {
+    int n;
+    std::cout << "Enter number of angles: ";
+    std::cin >> n;
+
+    double angles[n];
+    double sum = 0;
+
+    for (int i = 0; i < n; i++) {
+        std::cout << "Angle " << i + 1 << ": ";
+        std::cin >> angles[i];
+        sum += angles[i];
+    }
+
+    double expectedSum = 180 * (n - 2);
+
+    std::cout << "Sum of angles: " << sum << std::endl;
+    std::cout << "Expected sum: " << expectedSum << std::endl;
+
+    if (sum == expectedSum)
+        std::cout << "Polygon exists." << std::endl;
+    else
+        std::cout << "Polygon does NOT exist." << std::endl;
+
+    return 0;
+}
